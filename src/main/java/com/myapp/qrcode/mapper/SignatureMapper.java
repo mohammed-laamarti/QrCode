@@ -3,12 +3,14 @@ package com.myapp.qrcode.mapper;
 import com.myapp.qrcode.dto.CreateSignatureRequest;
 import com.myapp.qrcode.dto.SignatureResponse;
 import com.myapp.qrcode.model.SignatureData;
-
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
 
 import java.time.LocalDate;
 
-@Mapper(imports = LocalDate.class)
+@Mapper
 public interface SignatureMapper {
 
     SignatureMapper INSTANCE = Mappers.getMapper(SignatureMapper.class);
