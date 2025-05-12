@@ -13,6 +13,7 @@ import java.io.IOException;
 
 @Service
 public class QrGenerator {
+
     public static byte[] generateQRBytes(String data) throws WriterException, IOException {
         if (data == null) {
             throw new IllegalArgumentException("Data cannot be null");

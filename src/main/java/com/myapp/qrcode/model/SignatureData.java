@@ -8,12 +8,17 @@ public class SignatureData {
     private LocalDate dateCreation;
     private LocalDate dateExpiration;
 
-    public SignatureData(String nom, String prenom, LocalDate dateExpiration) {
+    public SignatureData(String nom, String prenom) {
         this.nom = nom;
         this.prenom = prenom;
         this.dateCreation = LocalDate.now();
-        this.dateExpiration = dateExpiration;
+        this.dateExpiration = dateCreation.plusMonths(6); ;
     }
+    public SignatureData(){
+    }
+
+
+
     public boolean isExpired() {
         return LocalDate.now().isAfter(dateExpiration) ||
                 LocalDate.now().isEqual(dateExpiration);
@@ -32,8 +37,7 @@ public class SignatureData {
         String[] parts = data.split("\\|");
         return new SignatureData(
                 parts[0],
-                parts[1],
-                LocalDate.parse(parts[3])
+                parts[1]
         );
     }
 
@@ -52,5 +56,21 @@ public class SignatureData {
     }
     public LocalDate getDateExpiration() {
         return dateExpiration;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public void setDateExpiration(LocalDate dateExpiration) {
+        this.dateExpiration = dateExpiration;
     }
 }
